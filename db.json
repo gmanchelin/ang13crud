@@ -1,0 +1,33 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "products": [
+    {
+      "id": 1,
+      "ProductName": "Téléphone",
+      "ProductDescription": "Pour appeler",
+      "ProductPrice": 350
+    },
+    {
+      "id": 2,
+      "ProductName": "Gourde",
+      "ProductDescription": "Pour mettre de l'eau",
+      "ProductPrice": 7
+    }
+  ]
+}
