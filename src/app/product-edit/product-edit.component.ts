@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Product } from '../model/product';
 import { ProductsService } from '../products.service';
 
 @Component({
@@ -12,15 +13,18 @@ export class ProductEditComponent implements OnInit {
   angForm !: FormGroup;
   product : any = {};
   id !: number;
-  constructor(private route: ActivatedRoute, private router: Router, private ps: ProductsService, private fb: FormBuilder) {
+  constructor(private route: ActivatedRoute, private router: Router, private ps: ProductsService<Product>, private fb: FormBuilder) {
   this.createForm();
 }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.ps.editProduct(params['id']).subscribe(result => {
+      this.ps.editProduct(params['id'])
+      /*
+      .subscribe(result => {
       this.product = result;
       });
+      */
     });
   }
 

@@ -18,16 +18,16 @@
   },
   "products": [
     {
-      "id": 1,
-      "ProductName": "Téléphone",
-      "ProductDescription": "Pour appeler",
-      "ProductPrice": 350
+      "ProductName": "1",
+      "ProductDescription": "1",
+      "ProductPrice": "1",
+      "id": 2
     },
     {
-      "id": 2,
-      "ProductName": "Gourde",
-      "ProductDescription": "Pour mettre de l'eau",
-      "ProductPrice": 7
+      "ProductName": "Ajout",
+      "ProductDescription": "Produit",
+      "ProductPrice": "12",
+      "id": 3
     }
   ]
 }

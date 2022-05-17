@@ -8,22 +8,19 @@ import { ProductsService } from '../products.service';
   styleUrls: ['./product-get.component.css']
 })
 export class ProductGetComponent implements OnInit {
-  products!: Product[];
-  constructor(private ps: ProductsService) { }
+  products!: Array<Product>;
+  constructor(private ps: ProductsService<Product>) { }
 
 
 
   ngOnInit() {
-    this.ps.getProducts().subscribe((data: Product[]) => {
-      this.products = data;
-    });
-
-    }
-
-
-  deleteProduct(id :number)
-  { this.ps.deleteProduct(id).subscribe(res => {
-    this.ngOnInit();
-    });
+    this.ps.getProducts();
+    this.products = this.ps.products;
   }
+
+
+  deleteProduct(id :number) : void {
+    this.ps.deleteProduct(id);
+  }
+
 }
