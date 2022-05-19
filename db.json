@@ -18,16 +18,16 @@
   },
   "products": [
     {
-      "ProductName": "1",
-      "ProductDescription": "1",
-      "ProductPrice": "1",
-      "id": 2
+      "ProductName": "Ecran 34 Pouces",
+      "ProductDescription": "Fox Spirit PGM340",
+      "ProductPrice": "379",
+      "id": 1
     },
     {
-      "ProductName": "Ajout",
-      "ProductDescription": "Produit",
-      "ProductPrice": "12",
-      "id": 3
+      "ProductName": "Enceintes Logitech",
+      "ProductDescription": "Enceintes pour PC",
+      "ProductPrice": "30",
+      "id": 2
     }
   ]
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Product } from '../model/product';
-import { ProductsService } from '../products.service';
+import { Product } from '../../models/product';
+import { ProductsService } from '../../web-services/products.web-service';
 
 @Component({
   selector: 'app-product-edit',
@@ -19,12 +19,10 @@ export class ProductEditComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.ps.editProduct(params['id'])
-      /*
-      .subscribe(result => {
+      this.ps.editProduct(params['id']).subscribe(result => {
       this.product = result;
       });
-      */
+
     });
   }
 

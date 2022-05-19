@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Model } from './model/product';
+import { Model, Product } from '../models/product';
 
 @Injectable({ providedIn: 'root'})
 
 export class ProductsService<T extends Model> {
+
   uri = 'http://localhost:3000/products';
   products = new Array<T>();
+
   constructor(private http: HttpClient) { }
+
   addProduct(ProductName: any, ProductDescription: any, ProductPrice: any) {
     const obj = {
       ProductName,
@@ -15,18 +18,16 @@ export class ProductsService<T extends Model> {
       ProductPrice
     };
     console.log(obj);
-    this.http.post<T>(`${this.uri}`, obj) .subscribe(() => this.getProducts);
+    this.http.post(`${this.uri}`, obj).subscribe( result =>
+      console.log("Done."));
   }
 
   getProducts() {
-    return this.http.get<T[]>(`${this.uri}`).subscribe(products => {
-      this.products.splice(0,this.products.length);
-      products.forEach(c=>this.products.push(c));
-    });
+    return this.http.get<T[]>(`${this.uri}`);
   }
 
   editProduct(id : any) {
-    return this.http.get<T>(`${this.uri}/${id}`).subscribe(() => this.getProducts);
+    return this.http.get<Product>(`${this.uri}/${id}`);
   }
 
   updateProduct(ProductName: any, ProductDescription: any, ProductPrice: any, id: any) {
@@ -35,11 +36,13 @@ export class ProductsService<T extends Model> {
       ProductDescription,
       ProductPrice
     };
-    this.http.put<T>(`${this.uri}/${id}`, obj).subscribe(() => this.getProducts);
+    this.http.put<T>(`${this.uri}/${id}`, obj).subscribe(result =>
+      console.log("Done.")
+    );
   }
 
-  deleteProduct(id :number) : void {
-    this.http.delete<T>(`${this.uri}/${id}`).subscribe(() => this.getProducts);
+  deleteProduct(id :number) {
+    return this.http.delete<T>(`${this.uri}/${id}`);
   }
 
 }

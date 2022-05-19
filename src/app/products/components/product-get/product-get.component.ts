@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../model/product';
-import { ProductsService } from '../products.service';
+import { Product } from '../../models/product';
+import { ProductsService } from '../../web-services/products.web-service';
+
 
 @Component({
   selector: 'app-product-get',
@@ -11,16 +12,17 @@ export class ProductGetComponent implements OnInit {
   products!: Array<Product>;
   constructor(private ps: ProductsService<Product>) { }
 
-
-
   ngOnInit() {
-    this.ps.getProducts();
-    this.products = this.ps.products;
+    this.ps.getProducts().subscribe(
+      (data: Product[]) => {
+        this.products = data;
+      });
   }
 
 
-  deleteProduct(id :number) : void {
-    this.ps.deleteProduct(id);
+  deleteProduct(id :number) {
+    this.ps.deleteProduct(id).subscribe( result => {
+      this.ngOnInit();
+    });
   }
-
 }

@@ -12,7 +12,7 @@
       <td>{{ product.ProductName }}</td>
       <td>{{ product.ProductDescription }}</td>
       <td>{{ product.ProductPrice }}</td>
-      <td><a [routerLink]="['/edit', product.id]" class="btn btnprimary">Edit</a></td>
+      <td><a [routerLink]="['/products/edit', product.id]" class="btn btnprimary">Edit</a></td>
       <td><a (click) = "deleteProduct(product.id)" class="btn btndanger">Delete</a>
     </tr>
   </tbody>
